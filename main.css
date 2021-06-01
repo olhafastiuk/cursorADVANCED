@@ -7,13 +7,11 @@
 
 body {
     background-color: rgb(206, 194, 178);
-    background-image: url(./images/bg.png);
-    background-repeat: no-repeat;
-    background-position: left top;
-    background-size:80vh;
+
 }
 header{
     display: flex;
+    z-index: 2;
 }
 h1{
     font-family: 'Roboto', sans-serif;
@@ -32,8 +30,9 @@ h1{
 main{
     display: flex;
     flex-direction: column;
-    margin-left: 30%;
+    margin-left: 35%;
     margin-top: 100px;
+    z-index: 2;
 }
 
 a{
@@ -107,4 +106,9 @@ input:checked~.checkmark{
 .chapter10{
     margin-bottom: 20px;
     margin-left: 180px;
+}
+footer img{
+    bottom: 0px;
+    position: fixed;
+    z-index: 0;
 }

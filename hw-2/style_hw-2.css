@@ -33,7 +33,7 @@ form{
     text-align: center;
 }
 
-#even{
+#checkbox{
     opacity: 0;
     width: 15px;
     height: 15px;
@@ -52,7 +52,7 @@ span{
     margin-top: 5px;
 }
 
-#even:checked ~ span{
+#checkbox:checked ~ span{
     background: #FD7459;
 }
 

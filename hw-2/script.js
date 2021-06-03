@@ -10,8 +10,8 @@ function res(num1, num2){
         sum = sum+ i;
     }
     if (sum==0){
-        document.writeln("Суму не вдалося визначити")
-    } else document.writeln(sum);
+        document.querySelector(".result").innerHTML = `<p>Суму не вдалося визначити</p>`;
+    } else document.querySelector(".result").innerHTML = `<p> Сума чисел від ${num1} до ${num2}: <p class="sum"> ${sum}</p>`;
     return sum;
 }
 

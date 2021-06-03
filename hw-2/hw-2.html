@@ -4,16 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style_hw-2.css">
+    
     <title>HW #2</title>
 </head>
 <body>
+    <img src="./images/bg.jpeg" alt="Порахуй!">
     <form name="publish">
-        <input type="number" id="number1">
-        <input type="number" id="number2">
-        <input type="checkbox" id="even"> Пропускати парні числа?
-        <input type="submit" value="Відправити">
+        <p>
+            Введіть перше число:
+            <input type="number" id="number1">
+        </p>
+        <p>
+            Введіть останнє число: 
+            <input type="number" id="number2">
+        </p>
+        <p>
+            <input type="checkbox" id="even">
+            <span></span>
+             Пропускати парні числа?
+        </p>
+        <input type="submit" value="Відправити" class="btn">
     </form>
-    <div class="class">
+    <div class="result">
     </div>
     <script src="./script.js"></script>
 </body>

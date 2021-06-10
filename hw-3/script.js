@@ -171,26 +171,29 @@ document.forms.form_7.onsubmit = function(){
     return false;   
 }
 
+// 8. Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
+// Приклад: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124
 
-// // 8. Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
-// // Приклад: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124
+function getRandomPassword(numbers){
+    let password = '';
 
-// function getRandomPassword(numbers){
-//     let password = '';
-//     if (numbers==undefined){
-//         for (i=0; i<8; i++){
-//             password = password + Math.trunc(Math.random()*10);
-//         }
-//     } else{
-//         for (i=0; i<numbers; i++){
-//             password = password + Math.trunc(Math.random()*10);
-//         }
-//     }
-    
-//     console.log(password);
-// }
+    if (numbers==""){
+        for (i=0; i<8; i++){
+            password = password + Math.trunc(Math.random()*10);
+        }
+    } else{
+        for (i=0; i<numbers; i++){
+            password = password + Math.trunc(Math.random()*10);
+        }
+    }
+    return password;
+}
+document.forms.form_8.onsubmit = function(){
+    let numbers = document.getElementById('input-8').value;
 
-// getRandomPassword();
+    document.getElementById("output-8").innerHTML = `Ваш новий пароль: ${getRandomPassword(numbers)}`;
+    return false;   
+}
 
 // // 9. Створіть функцію, яка видаляє всі букви з речення. 
 // // Приклад: deleteLetters('a', "blablabla") -> "blblbl"

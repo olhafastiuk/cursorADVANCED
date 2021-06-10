@@ -56,20 +56,23 @@ document.forms.form_2.onsubmit = function(){
 }
 
 
-// // 3.Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);
+// 3.Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);
 
-// let name = 'влад';
+function capitalize(str){
+    str = str.toLowerCase();
+    strNew = str[0].toUpperCase();
+    for (i=1; i<str.length; i++){
+        strNew = strNew + str[i];
+    }
+    return strNew;
+}
 
-// function capitalize(str){
-//     str = str.toLowerCase();
-//     strNew = str[0].toUpperCase();
-//     for (i=1; i<str.length; i++){
-//         strNew = strNew + str[i];
-//     }
-//     console.log(strNew);
-// }
+document.forms.form_3.onsubmit = function(){
+    let name = document.getElementById('input-3').value;
+    document.getElementById("output-3").innerHTML = `Результат: ${capitalize(name)}`;
+    return false;
+}
 
-// capitalize(name);
 
 
 // // 4. Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати. 

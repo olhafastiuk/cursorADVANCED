@@ -4,128 +4,157 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style_hw-3.css">
     <title>HW #3</title>
 </head>
 <body>
     <form class="block" name="form_1">
-        <p>1. Отримай найбільшу цифру із числа.</p>
+        <h2>1. Отримай найбільшу цифру із числа.</h2>
         <div class="input">
-        <span>Введіть число:</span>
-        <input type="number" id="input-1">
-        <input type="submit" value="Відправити">
+            <span>Введіть число:</span>
+            <input type="number" id="input-1">
         </div>
+        <input type="submit" value="Відправити"class="submit">
+        <p id="output-1" ></p>
+       
     </form>
-    <p id="output-1" ></p>
 
     <form class="block" name="form_2">
-        <p>2. Визначіть степінь числа.</p>
+        <h2>2. Визначіть степінь числа.</h2>
         <div class="input">
-        <span>Введіть число:</span>
-        <input type="number" id="input-2_1">
-        <span>Введіть степінь:</span>
-        <input type="number" id="input-2_2">
-        <input type="submit" value="Відправити">
+            <span>Введіть число:</span>
+            <input type="number" id="input-2_1">
         </div>
+        <div class="input">
+            <span>Введіть степінь:</span>
+            <input type="number" id="input-2_2">
+        </div>
+        <input type="submit" value="Відправити" class="submit">
+        <p id="output-2" ></p>
+        
     </form>
-    <p id="output-2" ></p>
+    
 
     <form class="block" name="form_3">
-        <p>3. Відформатуйте ім'я.</p>
+        <h2>3. Відформатуйте ім'я.</h2>
         <div class="input">
-        <span>Введіть ім'я:</span>
-        <input type="text" id="input-3">
-        <input type="submit" value="Відправити">
+            <span>Введіть ім'я:</span>
+            <input type="text" id="input-3">
         </div>
+        <input type="submit" value="Відправити" class="submit">
+         <p id="output-3" ></p>
+        
     </form>
-    <p id="output-3" ></p>
+   
 
     <form class="block" name="form_4">
-        <p>4. Порахуйте зарплату включно з податками.</p>
+        <h2>4. Порахуйте зарплату включно з податками.</h2>
         <div class="input">
-        <span>Ваша зарплата:</span>
-        <input type="number" id="input-4_1">грн
-        <span>Податки:</span>
-        <input type="number" id="input-4_2">%
-        <input type="submit" value="Відправити">
+            <span>Ваша зарплата:</span>
+            <input type="number" id="input-4_1">грн
         </div>
+        <div class="input">
+            <span>Податки:</span>
+            <input type="number" id="input-4_2">%
+        </div>
+        <input type="submit" value="Відправити" class="submit">
+        <p id="output-4" ></p>
+        
     </form>
-    <p id="output-4" ></p>
 
     <form class="block" name="form_5">
-        <p>5. Отримайте випадкове число в діапазоні</p>
+        <h2>5. Отримайте випадкове число в діапазоні</h2>
         <div class="input">
-        <span>Від:</span>
-        <input type="number" id="input-5_1">грн
-        <span>До:</span>
-        <input type="number" id="input-5_2">%
-        <input type="submit" value="Відправити">
+            <span>Від:</span>
+            <input type="number" id="input-5_1"> 
         </div>
+        <div class="input">
+            <span>До:</span>
+            <input type="number" id="input-5_2">
+        </div>
+        <input type="submit" value="Відправити" class="submit">
+        <p id="output-5" ></p>
+       
     </form>
-    <p id="output-5" ></p>
 
     <form class="block" name="form_6">
-        <p>6. Cкільки разів буква повторюється в слові?</p>
+        <h2>6. Cкільки разів буква повторюється в слові?</h2>
         <div class="input">
-        <span>Слово:</span>
-        <input type="text" id="input-6_1">
-        <span>Буква:</span>
-        <input type="text" id="input-6_2" maxlength="1">
-        <input type="submit" value="Відправити">
+            <span>Слово:</span>
+            <input type="text" id="input-6_1">
         </div>
+        <div class="input">
+            <span>Буква:</span>
+            <input type="text" id="input-6_2" maxlength="1">
+        </div>
+        <input type="submit" value="Відправити" class="submit">
+        <p id="output-6" ></p>
+        
     </form>
-    <p id="output-6" ></p>
 
     <form class="block" name="form_7">
-        <p>7. Конвертер валют ('$' ↔ 'UAH')</p>
+        <h2>7. Конвертер валют ('$' ↔ 'UAH')</h2>
         <div class="input">
-        <span>Введіть суму:</span>
-        <input type="text" id="input-7">
-        <input type="submit" value="Відправити">
+            <span>Введіть суму:</span>
+            <input type="text" id="input-7">
         </div>
+        <input type="submit" value="Відправити" class="submit">
+        <p id="output-7" ></p>
+        
     </form>
-    <p id="output-7" ></p>
+    
 
     <form class="block" name="form_8">
-        <p>8. Отримайте пароль</p>
+        <h2>8. Отримайте пароль</h2>
         <div class="input">
-        <span>Вкажіть кількість цифр:</span>
-        <input type="number" id="input-8" value="8">
-        <input type="submit" value="Відправити">
+            <span>Вкажіть кількість цифр:</span>
+            <input type="number" id="input-8" value="8">
         </div>
+        <input type="submit" value="Відправити" class="submit">
+        <p id="output-8" ></p>
+        
     </form>
-    <p id="output-8" ></p>
+    
 
     <form class="block" name="form_9">
-        <p>9. Видаліть букву з речення</p>
+        <h2>9. Видаліть букву з речення</h2>
         <div class="input">
-        <span>Вкажіть букву:</span>
-        <input type="text" id="input-9_1" maxlength = "1">
-        <span>Вкажіть речення:</span>
-        <input type="text" id="input-9_2" >
-        <input type="submit" value="Відправити">
+            <span>Вкажіть букву:</span>
+            <input type="text" id="input-9_1" maxlength = "1">
         </div>
+        <div class="input">
+            <span>Вкажіть речення:</span>
+            <input type="text" id="input-9_2" >
+        </div>
+        <input type="submit" value="Відправити" class="submit">
+        <p id="output-9" ></p>
+       
     </form>
-    <p id="output-9" ></p>
+ 
 
     <form class="block" name="form_10">
-        <p>10. Перевірте чи є слово паліндромом.</p>
+        <h2>10. Перевірте чи є слово паліндромом.</h2>
         <div class="input">
-        <span>Введіть слово:</span>
-        <input type="text" id="input-10">
-        <input type="submit" value="Відправити">
+            <span>Введіть слово:</span>
+            <input type="text" id="input-10">
         </div>
+        <input type="submit" value="Відправити" class="submit">
+        <p id="output-10" ></p>
+        
     </form>
-    <p id="output-10" ></p>
+
     
     <form class="block" name="form_11">
-        <p>11. Видаліть з речення всі букви, які повторюються</p>
+        <h2>11. Видаліть з речення всі букви, які повторюються</h2>
         <div class="input">
-        <span>Введіть речення:</span>
-        <input type="text" id="input-11" value="Бісквіт був дуже ніжним">
-        <input type="submit" value="Відправити">
+            <span>Введіть речення:</span>
+            <input type="text" id="input-11" value="Бісквіт був дуже ніжним">
         </div>
+        <input type="submit" value="Відправити" class="submit">
+        <p id="output-11" ></p>
+        
     </form>
-    <p id="output-11" ></p>
+    
     <script src="./script.js"></script>
 </body>
 </html>

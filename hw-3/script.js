@@ -90,15 +90,14 @@ document.forms.form_4.onsubmit = function(){
 
 // 5. Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. 
 // Приклад: getRandomNumber(1, 10) -> 5
-let date = new Date();
-let seed = date.getSeconds();
-function getRandomNumber(numberStart, numberFinish){
+
+function getRandomNumber(numberStart, numberFinish, seed){
     number1 = Math.min(numberStart, numberFinish);
     number2 = Math.max(numberStart, numberFinish);
     let random = (seed * seed).toString().padStart(4, '0').slice(1,3);
     seed2 = parseInt(random);
     while (seed == seed2){
-        seed2 = date.getSeconds() + 1;
+        seed2 = date.getSeconds();
         random = (seed2 * seed2).toString().padStart(4, '0').slice(1,3);
         seed2 = parseInt(random);
     }
@@ -108,13 +107,16 @@ function getRandomNumber(numberStart, numberFinish){
     return result;
 }
 document.forms.form_5.onsubmit = function(){
-    
+    let date = new Date();
+    let seed = date.getSeconds();
     let number1 = Number(document.getElementById('input-5_1').value);
     let number2 = Number(document.getElementById('input-5_2').value);
 
-    document.getElementById("output-5").innerHTML = `Ваше число: ${getRandomNumber(number1, number2)}`;
+    document.getElementById("output-5").innerHTML = `Ваше число: ${getRandomNumber(number1, number2, seed)}`;
     return false;   
 }
+
+
 
 // 6. Створити функцію, яка рахує скільки разів певна буква повторюється в слові. 
 // Приклад: countLetter("а", "Асталавіста") -> 4
@@ -151,11 +153,11 @@ function convertCurrency(str){
 
         if (str[i]=='$'){
             output = Number(newStr) * 25; 
-            output = output + 'UAH';
+            output = output + ' UAH';
         }
         if (str[i]=='U'&& str[i+1]=="A" && str[i+2]=="H"){
             output = Number(newStr) / 25; 
-            output = output + '$';
+            output = output + ' $';
         }
 
         newStr = newStr + str[i];

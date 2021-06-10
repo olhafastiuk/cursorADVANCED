@@ -25,8 +25,7 @@ document.forms.form_1.onsubmit = function(){
     return false;
 }
 
-
-// // 2. Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл
+// 2. Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл
 
 function getNumberInPower(number, power) {
     let newNumber = number;
@@ -55,38 +54,39 @@ document.forms.form_2.onsubmit = function(){
     return false;
 }
 
-
 // 3.Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);
 
 function capitalize(str){
     str = str.toLowerCase();
     strNew = str[0].toUpperCase();
+
     for (i=1; i<str.length; i++){
         strNew = strNew + str[i];
     }
     return strNew;
 }
-
 document.forms.form_3.onsubmit = function(){
     let name = document.getElementById('input-3').value;
     document.getElementById("output-3").innerHTML = `Результат: ${capitalize(name)}`;
     return false;
 }
 
+// 4. Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати. 
+// (Податок = 18% + 1.5% -> 19.5%). Приклад: 1000 -> 805
 
+function getSalary(salary, tax){
+    let taxAmount = salary * tax / 100;
+    let newSalary = salary - taxAmount;
+    return newSalary;
+}
 
-// // 4. Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати. 
-// // (Податок = 18% + 1.5% -> 19.5%). Приклад: 1000 -> 805
+document.forms.form_4.onsubmit = function(){
+    let salary = Number(document.getElementById('input-4_1').value);
+    let tax = Number(document.getElementById('input-4_2').value);
 
-// let salary = 1000;
-// let tax = 19.5;
-// function getSalary(salary, tax){
-//     let taxAmount = salary * tax / 100;
-//     let newSalary = salary - taxAmount;
-//     return newSalary;
-// }
-
-// console.log(getSalary(salary, tax))
+    document.getElementById("output-4").innerHTML = `Вам нараховано: ${getSalary(salary, tax)}грн`;
+    return false;
+}
 
 // // 5. Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. 
 // // Приклад: getRandomNumber(1, 10) -> 5

@@ -88,25 +88,33 @@ document.forms.form_4.onsubmit = function(){
     return false;
 }
 
-// // 5. Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. 
-// // Приклад: getRandomNumber(1, 10) -> 5
-// let date = new Date();
-// let seed = date.getSeconds();
-// function getRandomNumber(number1, number2){
-//     let random = (seed * seed).toString().padStart(4, '0').slice(1,3);
-//     seed2 = parseInt(random);
-//     while (seed == seed2){
-//         seed2 = date.getSeconds() + 1;
-//         random = (seed2 * seed2).toString().padStart(4, '0').slice(1,3);
-//         seed2 = parseInt(random);
-//     }
-//     seed = seed2;
-//     let div = number2 - number1 + 1;
-//     let result = number1 + seed % div ;
-//     return result;
-// }
+// 5. Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. 
+// Приклад: getRandomNumber(1, 10) -> 5
+let date = new Date();
+let seed = date.getSeconds();
+function getRandomNumber(number1, number2){
+    let random = (seed * seed).toString().padStart(4, '0').slice(1,3);
+    seed2 = parseInt(random);
+    while (seed == seed2){
+        seed2 = date.getSeconds() + 1;
+        random = (seed2 * seed2).toString().padStart(4, '0').slice(1,3);
+        seed2 = parseInt(random);
+    }
+    seed = seed2;
+    let div = number2 - number1 + 1;
+    let result = number1 + seed % div ;
+    return result;
+}
+document.forms.form_5.onsubmit = function(){
+    
+    let number1 = Number(document.getElementById('input-5_1').value);
+    let number2 = Number(document.getElementById('input-5_2').value);
 
-// document.writeln(getRandomNumber(5, 95))
+    document.getElementById("output-5").innerHTML = `Ваше число: ${getRandomNumber(number1, number2)}`;
+    return false;   
+}
+
+
 
 
 

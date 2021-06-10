@@ -218,34 +218,29 @@ document.forms.form_9.onsubmit = function(){
     return false;   
 }
 
+// 10. Створіть функцію, яка перевіряє, чи є слово паліндромом. 
+// Приклад: isPalyndrom("мадам") -> true, isPalyndrom("кокос") -> false, isPalyndrom("Я несу гусеня") -> true
 
-// // 10. Створіть функцію, яка перевіряє, чи є слово паліндромом. 
-// // Приклад: isPalyndrom("мадам") -> true, isPalyndrom("кокос") -> false, isPalyndrom("Я несу гусеня") -> true
+function isPalyndrom(word){
+    let palyndrom;
+    let x = word.length;
 
-// function isPalyndrom(word){
-//     let palyndrom;
-//     let x = word.length;
-
-//     for (let i = 0; i < (word.length / 2); i++){
-//         x = x-1;
-//         if (word[i] == word[x]){
-//             palyndrom = true;
-//         } else {
-//             palyndrom = false;
-//             break
-//         }
-//     }
-//     return palyndrom;
-// }
-// console.log(isPalyndrom('мад'));
-// console.log(isPalyndrom('мам'));
-// console.log(isPalyndrom('маад'));
-// console.log(isPalyndrom('маам'));
-
-
-
-
-
+    for (let i = 0; i < (word.length / 2); i++){
+        x = x-1;
+        if (word[i] == word[x]){
+            palyndrom = true;
+        } else {
+            palyndrom = false;
+            break
+        }
+    }
+    return palyndrom;
+}
+document.forms.form_10.onsubmit = function(){
+    let word = document.getElementById('input-10').value;
+    document.getElementById("output-10").innerHTML = isPalyndrom(word);
+    return false;   
+}
 
 
 // // 11. Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу. 

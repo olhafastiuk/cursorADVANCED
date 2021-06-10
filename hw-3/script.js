@@ -249,38 +249,38 @@ document.forms.form_10.onsubmit = function(){
 
 
 
-// function deleteDuplicateLetter(textIn){
-//     // let textIn = 'ааБбвгггддdk,fv';
-//     let textOut = [];
-//     let newStr = '';
+function deleteDuplicateLetter(textIn){
+    // let textIn = 'ааБбвгггддdk,fv';
+    let textOut = [];
+    let newStr = '';
+    textIn = textIn.toLowerCase();
+    const length = textIn.length;
+    let flag = false;
 
-//     const length = textIn.length;
-//     let flag = false;
-
-//     for (let i = 0; i < length; ++i) {
-//         textOut.push(textIn[i]);
-//     }
-//     for (let i=0; i<length; i++){
-//     flag = false;
-//       for ( let x=i+1; x<length; x++){
-//         if (textOut[i] === textOut[x]){
-//             textOut[x] = undefined;
-//             flag = true;
-//         }
-//       }
-//       if (flag) {
-//         textOut[i] = undefined;
-//       }
-//     }
-//     for (let i=0; i<length; i++){
-//         if (textOut[i] != undefined){
-//             newStr = newStr + String(textOut[i]);
-//         }
-//     }
-//     return newStr;
-// }
-// document.forms.form_11.onsubmit = function(){
-//     let textIn = document.getElementById('input-11').value;
-//     document.getElementById("output-11").innerHTML = deleteDuplicateLetter(textIn);
-//     return false;   
-// }
+    for (let i = 0; i < length; ++i) {
+        textOut.push(textIn[i]);
+    }
+    for (let i=0; i<length; i++){
+    flag = false;
+      for ( let x=i+1; x<length; x++){
+        if (textOut[i] == textOut[x]){
+            textOut[x] = undefined;
+            flag = true;
+        }
+      }
+      if (flag) {
+        textOut[i] = undefined;
+      }
+    }
+    for (let i=0; i<length; i++){
+        if (textOut[i] != undefined){
+            newStr = newStr + String(textOut[i]);
+        }
+    }
+    return newStr;
+}
+document.forms.form_11.onsubmit = function(){
+    let textIn = document.getElementById('input-11').value;
+    document.getElementById("output-11").innerHTML = deleteDuplicateLetter(textIn);
+    return false;   
+}

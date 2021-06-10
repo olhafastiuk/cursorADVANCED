@@ -114,34 +114,28 @@ document.forms.form_5.onsubmit = function(){
     return false;   
 }
 
+// 6. Створити функцію, яка рахує скільки разів певна буква повторюється в слові. 
+// Приклад: countLetter("а", "Асталавіста") -> 4
 
+function countLetter(letter, word){
+    word = word.toLowerCase();
+    letter = letter.toLowerCase();
+    let amount = 0;
+    for(i=0; i<word.length; i++){
+        if (word[i]==letter){
+            amount += 1;
+        }
+    }
+    return amount;
+}
+document.forms.form_6.onsubmit = function(){
+    
+    let word = document.getElementById('input-6_1').value;
+    let letter = document.getElementById('input-6_2').value;
 
-
-
-
-
-
-
-
-
-
-// // 6. Створити функцію, яка рахує скільки разів певна буква повторюється в слові. 
-// // Приклад: countLetter("а", "Асталавіста") -> 4
-
-// let word = 'асталавіста';
-// let letter = 'а';
-
-// function countLetter(letter, word){
-//     let x = 0;
-//     for(i=0; i<word.length; i++){
-//         if (word[i]==letter){
-//             x += 1;
-//         }
-//     }
-//     return x;
-// }
-
-// console.log(countLetter(letter, word));
+    document.getElementById("output-6").innerHTML = `Буква '${letter}' повторюється ${countLetter(letter, word)} разів`;
+    return false;   
+}
 
 // // 7. Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. 
 // // Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$

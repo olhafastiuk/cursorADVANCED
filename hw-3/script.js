@@ -195,22 +195,28 @@ document.forms.form_8.onsubmit = function(){
     return false;   
 }
 
-// // 9. Створіть функцію, яка видаляє всі букви з речення. 
-// // Приклад: deleteLetters('a', "blablabla") -> "blblbl"
+// 9. Створіть функцію, яка видаляє всі букви з речення. 
+// Приклад: deleteLetters('a', "blablabla") -> "blblbl"
 
-// function deleteLetters(letter, text){
-//     let output = '';
-//     for(i=0; i<text.length; i++){
-//         if (text[i]==letter){
-//             continue
-//         }else {
-//             output = output + text[i];
-//         }
-//     }
-//     return output;
-// }
+function deleteLetters(letter, text){
+    let output = '';
 
-// console.log(deleteLetters('a', 'ababahalamaha'))
+    for(i=0; i<text.length; i++){
+        if (text[i]==letter.toUpperCase() || text[i]==letter.toLowerCase()){
+            continue
+        }else {
+            output = output + text[i];
+        }
+    }
+    return output;
+}
+document.forms.form_9.onsubmit = function(){
+    let letter = document.getElementById('input-9_1').value;
+    let text = document.getElementById('input-9_2').value;
+
+    document.getElementById("output-9").innerHTML = `Нове речення без букви '${letter}': "${deleteLetters(letter, text)}"`;
+    return false;   
+}
 
 
 // // 10. Створіть функцію, яка перевіряє, чи є слово паліндромом. 

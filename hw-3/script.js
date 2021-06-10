@@ -137,34 +137,39 @@ document.forms.form_6.onsubmit = function(){
     return false;   
 }
 
-// // 7. Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. 
-// // Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$
-// // Врахуйте, інші валюти не конвертуються, потрібно виводити помилку, і також регістр uah не має значення.
+// 7. Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. 
+// Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$
+// Врахуйте, інші валюти не конвертуються, потрібно виводити помилку, і також регістр uah не має значення.
 
+function convertCurrency(str){
+    str = str.toUpperCase();
+    let newStr = '';
+    let output;
+    for (i=0; i<str.length; i++){
 
+        if (str[i]=='$'){
+            output = Number(newStr) * 25; 
+            output = output + 'UAH';
+        }
+        if (str[i]=='U'&& str[i+1]=="A" && str[i+2]=="H"){
+            output = Number(newStr) / 25; 
+            output = output + '$';
+        }
 
-// let input = '25000Uah';
-// let output;
+        newStr = newStr + str[i];
+    }
+    if (output == undefined){
+        return "Вкажіть валюту '$' або 'UAH' " ;
+    }
 
-// function convertCurrency(str){
-//     str = str.toUpperCase();
-//     let newStr = '';
-//     for (i=0; i<str.length; i++){
+    return output;
+}
+document.forms.form_7.onsubmit = function(){
+    let input = document.getElementById('input-7').value;
 
-//         if (str[i]=='$'){
-//             output = Number(newStr) * 25; 
-//             console.log(output + 'UAH')
-//         }
-
-//         if (str[i]=='U'&& str[i+1]=="A" && str[i+2]=="H"){
-//             output = Number(newStr) / 25; 
-//             console.log(output + '$')
-//         }
-
-//         newStr = newStr + str[i];
-//     }
-// }
-// convertCurrency(input);
+    document.getElementById("output-7").innerHTML = convertCurrency(input);
+    return false;   
+}
 
 
 // // 8. Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.

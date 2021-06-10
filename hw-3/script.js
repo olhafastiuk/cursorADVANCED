@@ -92,7 +92,9 @@ document.forms.form_4.onsubmit = function(){
 // Приклад: getRandomNumber(1, 10) -> 5
 let date = new Date();
 let seed = date.getSeconds();
-function getRandomNumber(number1, number2){
+function getRandomNumber(numberStart, numberFinish){
+    number1 = Math.min(numberStart, numberFinish);
+    number2 = Math.max(numberStart, numberFinish);
     let random = (seed * seed).toString().padStart(4, '0').slice(1,3);
     seed2 = parseInt(random);
     while (seed == seed2){
@@ -242,24 +244,26 @@ document.forms.form_10.onsubmit = function(){
     return false;   
 }
 
+// 11. Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу. 
+// Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"
 
-// // 11. Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу. 
-// // Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"
 
-// let textIn = 'ааБбвгггддdk,fv';
-// let textOut = [];
 
-// const length = textIn.length;
-// let flag = false;
+// function deleteDuplicateLetter(textIn){
+//     // let textIn = 'ааБбвгггддdk,fv';
+//     let textOut = [];
+//     let newStr = '';
 
-// for (let i = 0; i < length; ++i) {
-//     textOut.push(textIn[i]);
-// }
-// function deleteDuplicateLetter(){
+//     const length = textIn.length;
+//     let flag = false;
+
+//     for (let i = 0; i < length; ++i) {
+//         textOut.push(textIn[i]);
+//     }
 //     for (let i=0; i<length; i++){
 //     flag = false;
 //       for ( let x=i+1; x<length; x++){
-//         if (textOut[i] == textOut[x]){
+//         if (textOut[i] === textOut[x]){
 //             textOut[x] = undefined;
 //             flag = true;
 //         }
@@ -270,9 +274,13 @@ document.forms.form_10.onsubmit = function(){
 //     }
 //     for (let i=0; i<length; i++){
 //         if (textOut[i] != undefined){
-//             document.writeln(textOut[i]);
+//             newStr = newStr + String(textOut[i]);
 //         }
 //     }
+//     return newStr;
 // }
-
-// deleteDuplicateLetter();
+// document.forms.form_11.onsubmit = function(){
+//     let textIn = document.getElementById('input-11').value;
+//     document.getElementById("output-11").innerHTML = deleteDuplicateLetter(textIn);
+//     return false;   
+// }

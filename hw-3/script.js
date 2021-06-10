@@ -28,33 +28,33 @@ document.forms.form_1.onsubmit = function(){
 
 // // 2. Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл
 
-// let number = 2;
-// let newNumber = number;
-// let power = 2;
+function getNumberInPower(number, power) {
+    let newNumber = number;
+    if(power > 0){
+        for (i = 1;i < power;i++ ){
+        newNumber = newNumber * number;
+        }
+    } 
+    if (power < 0){
+        power = power * -1;
+        newNumber = 1/number;
+        for (i = 1; i < power; i++){
+            newNumber = newNumber / number;
+        }
+    }
+    if (power == 0){
+        newNumber = 1;
+    }
+    return newNumber
+}
+document.forms.form_2.onsubmit = function(){
+    let number = Number(document.getElementById('input-2_1').value);
+    let power = Number(document.getElementById('input-2_2').value);
 
-// function getNumberInPower(params) {
-//     if(power > 0){
-//         for (i = 1;i < power;i++ ){
-//         newNumber = newNumber * number;
-//         }
-//         // console.log(newNumber);
-//     }if (power < 0){
-//         power = power * -1;
-//         newNumber = 1/number;
-//         for (i = 1; i < power; i++){
-//             newNumber = newNumber / number;
-//         }
-//         // console.log(newNumber);
-//     }
-//     if (power == 0){
-//         newNumber = 1;
-//     }
+    document.getElementById("output-2").innerHTML = `Результат: ${getNumberInPower(number, power)}`;
+    return false;
+}
 
-//     console.log(newNumber);
-    
-// }
-
-// getNumberInPower();
 
 // // 3.Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);
 

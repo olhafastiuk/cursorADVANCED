@@ -8,51 +8,61 @@ const girls = students.filter(student => student[student.length - 1] === 'а');
 const boys = students.filter(student => student[student.length - 1] !== 'а');
 
 function getPairs(boys, girls){
-    const p = [];
+    const pairs = [];
     for (let i = 0; i < boys.length; i++) {
-        p[i] = [boys[i], girls[i]];
+        pairs[i] = [boys[i], girls[i]];
     }
-
-    return p;
+    return pairs;
 }
-
-console.log(getPairs(boys, girls));
+const pairs = getPairs(boys, girls);
+console.log(pairs);
 
 // 2. Зіставте пари з попереднього завдання та теми проєктів, над якими студенти будуть працювати.
 
-const pairs = getPairs(boys, girls);
-
 function getProject(pairs, themes) {
-    const p = [];
+    const teamProject = [];
     for (let i = 0; i < pairs.length; i++) {
-        p[i] = [pairs[i].join(' і '), themes[i]];
+        teamProject[i] = [pairs[i].join(' і '), themes[i]];
     }
 
-    return p;
+    return teamProject;
 }
-
-console.log(getProject(pairs, themes));
+const teamProject = getProject(pairs, themes);
+console.log(teamProject);
 
 //3.Зіставте оцінки(marks) зі студентом(students): [["Саша", 4], [...], [...]]
 
 function getStudentMark(students, marks) {
-    const p = [];
+    const studentMark = [];
     for (let i = 0; i < students.length; i++) {
-        p[i] = [students[i], marks[i]];
+        studentMark[i] = [students[i], marks[i]];
     }
-    return p;
+    return studentMark;
 }
-
-console.log(getStudentMark(students, marks));
+const studentMark = getStudentMark(students, marks);
+console.log(studentMark);
 
 // 4. Поставте кожній парі випадкову оцінку(від 1 до 5) за проєкт(тут функція буде нечистою, але не повинна мутувати массив)
 
 function getTeamMarks(team){
-    const p = [];
+    const teamMark = [];
     for (let i = 0; i < team.length; i++) {
-        p [i] = [team[i], Math.trunc(Math.random() * 4+1)];
+        teamMark [i] = [team[i], Math.trunc(Math.random() * 5) + 1];
     }
-    return p;
+    return teamMark;
 }
+const teamMark = getTeamMarks(teamProject);
+console.log(teamMark);
 
-console.log(getTeamMarks(getProject(pairs, themes)));
+//Вивід у html
+const itemsPairs = pairs.map((item) => item.join( ", " )).join(';<br>');
+document.querySelector('.pairs').innerHTML = `${itemsPairs}.`;
+
+const itemsProject = teamProject.map((item) => item.join(': \"')).join('\";<br>');
+document.querySelector('.project').innerHTML = `${itemsProject}.`;
+
+const itemsMark = studentMark.map((item)=>item.join(': ')).join(';<br>')
+document.querySelector('.student__mark').innerHTML = `${itemsMark}.`;
+
+const itemsTeamMark = teamMark.map((item) => item = `${item[0][0]} - "${item[0][1]}": ${item[1]}`).join(';<br>');
+document.querySelector('.teams__marks').innerHTML = `${itemsTeamMark}.`;

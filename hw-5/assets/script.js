@@ -18,11 +18,7 @@ document.writeln(`Новий масив з випадкових чисел: ${ge
 
 
 function getModa(...input) {
-    const numbers = input.map(function(item) {
-        if ((item ^ 0) === item) {
-            return item;
-        }
-    })
+    const numbers = input.filter((item) => item ^ 0)
     const amount = numbers.concat();
     for (let i = 0; i < numbers.length; i++) {
         amount[i] = 0;
@@ -42,11 +38,7 @@ document.writeln(`Мода = ${getModa(6, 2, 55, 11, 100.5, 2, 100.5, 77, 57, 10
 // Приклад: getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 34.4
 
 function getAverage(...input) {
-    const numbers = input.map(function(item) {
-        if ((item ^ 0) === item) {
-            return item;
-        }
-    })
+    const numbers = input.filter((item) => item ^ 0)
     let sum = 0;
     for (let i = 0; i<numbers.length; i++) {
         sum += numbers[i];
@@ -62,11 +54,7 @@ document.writeln(`Середнє арифметичне значення = ${get
 // Приклад: getMedian(1, 2, 3, 4, 5) –> 3
 
 function getMedian(...input) {
-    const numbers = input.map(function(item) {
-        if ((item ^ 0) === item) {
-            return item;
-        }
-    })
+    const numbers = input.filter((item) => item ^ 0)
     let mediana = 0;
     const arr = numbers.sort((a, b) => a-b).concat();
     if (numbers.length % 2 !== 0) {
@@ -84,12 +72,8 @@ document.writeln(`Медіана = ${getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 
 // Приклад: filterEvenNumbers(1, 2, 3, 4, 5, 6) -> [1, 3, 5]
 
 function filterEvenNumbers(...numbers) {
-    const arr = numbers.filter (function (item) {
-        if (item % 2 !== 0){
-            return item
-        }        
-    })
-    return arr
+
+    return  numbers.filter ((item) => (item % 2))
 }
 
 document.writeln(`Тільки непарні числа: ${filterEvenNumbers(1, 2, 3, 4, 5, 6)}<br>`)
@@ -99,7 +83,7 @@ document.writeln(`Тільки непарні числа: ${filterEvenNumbers(1,
 
 function countPositiveNumbers(...numbers) {
     let count = 0;
-    numbers.filter(function(item) {
+    numbers.map(function(item) {
         if (item > 0){
             return count +=1;
         }
@@ -112,15 +96,10 @@ document.writeln(`Кількість чисел більших за 0: ${countPo
 // Приклад: getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) -> [55, 55]
 
 function getDividedByFive(...numbers) {
-    const arr = numbers.filter(function(item) {
-        if (item % 5 === 0){
-            return item
-        }
-    })
-    return arr;
+    return numbers.filter((item) => (item % 5 === 0));
 }
 
-document.writeln(`На ціло діляться тільки: ${getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}<br>`)
+document.writeln(`На ціло на 5 діляться тільки: ${getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}<br>`)
 
 // 8. Створіть функцію replaceBadWords(string) – яка 
 // 1) розіб'є фразу на слова, 
@@ -136,12 +115,17 @@ function replaceBadWords(input) {
     str = input.toLowerCase();
     const arr = str.split(' ');
     const badWords = ['shit', 'fuck'];
+    let change = '';
 
     for (let i = 0; i < arr.length; i++) {
         for (let x = 0; x < badWords.length; x++) {
             if (arr[i].includes(badWords[x])) {
-                // TODO: визначення довжини слова і кількості зірочок
-                arr[i] = arr[i].replace(badWords[x], '****');
+                for (let a = 0; a < badWords[x].length; a++){
+                    change += '*';
+                    console.log(change);
+                }
+                arr[i] = arr[i].replace(badWords[x], change);
+                change = change.replace(change, '');
             }
         }
     }
@@ -157,7 +141,7 @@ document.writeln(`Цензурована фраза: ${replaceBadWords("Fucking 
 // Приклад: divideByThree("Commander) -> ["com", "man", "der"] Приклад: divideByThree("live") -> ["liv", "e"]
 
 function divideByThree(word) {
-    workWord = word.toLowerCase();
+    const workWord = word.toLowerCase();
     const arr = [];
     let x = 0;
     for (let i = 0; i < workWord.length; i += 3) {
@@ -180,12 +164,9 @@ document.writeln(`Слово по складах: ${divideByThree("Commander")}<
 // a, b - номери літер які потрібно обміняти
 // повернення - стрічка з обміняними літерами
 function swap(str, a, b) {
-    let letters;
-    let t;
+    let letters = str.split('');
 
-    letters = str.split('');
-
-    t = letters[a];
+    let t = letters[a];
     letters[a] = letters[b];
     letters[b] = t;
 
@@ -196,17 +177,18 @@ function swap(str, a, b) {
 // word - вхідне слово для генерації перестановок
 // s - номер першого символу
 // e - номер останнього символу
-function permute(word, s, e) {
+function permute(set, word, s, e) {
     if (typeof set == 'undefined') {
         set = new Set()
     }
 
     if (s == e) {
         set.add(word)
+        console.log(word)
     } else {
         for (let i = s; i <= e; ++i) {
             word = swap(word, s, i)
-            permute(word, s + 1, e)
+            permute(set, word, s + 1, e)
         }
     }
 
@@ -214,7 +196,8 @@ function permute(word, s, e) {
 }
 
 function generateCombinations(word) {
-    return Array.from(permute(word, 0, word.length - 1))
+    let set;
+    return Array.from(permute(set, word, 0, word.length - 1))
 }
 
-document.writeln(`Всі можливі перестановки без повторів: ${generateCombinations("abca")}<br>`)
+document.writeln(`Всі можливі перестановки без повторів: ${generateCombinations("abcd")}<br>`)

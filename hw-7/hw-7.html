@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ua">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +7,53 @@
     <title>HW #7</title>
 </head>
 <body>
+    <div class="block">
+        <h2>
+            Порахуйте, скільки податків ви заплатите як IT-спеціаліст в одній із країн:
+        </h2>
+       <form name="form1">
+           <p>Введіть зарплату:</p>
+           <input type="number" id="salary">
+           <p>Виберіть країну:</p>
+           <input type="radio" name = 'form1' value="ukraine" > Україна
+           <input type="radio" name = 'form1' value="latvia" > Латвія
+           <input type="radio" name = 'form1' value="litva"> Литва
+           <input type="submit" value="Розрахувати">
+           <p id = "res1"></p>
+       </form>
+    </div>
+    <div class="block">
+        <h2>
+            Cередній податок у:
+        </h2>
+        <input type="radio" name="form2" value="ukraine" onclick="handleClick();"> Україна
+        <input type="radio" name="form2" value="latvia" onclick="handleClick();"> Латвія
+        <input type="radio" name="form2" value="litva" onclick="handleClick();"> Литва
+        <p id = 'res2'></p>
+    </div>
+    <div class="block">
+        <p>
+            Всього у 
+            <select id = "selector3" onchange = "getSelectorValue();">
+                <option value="ukraine">Україна</option>
+                <option value="latvia">Латвія</option>
+                <option value="litva">Литва</option>
+            </select> 
+            IT-спеціалісти платять податків на суму :
+            <p id = 'res3'></p>
+        </p>
+    </div>
+    <div class="block">
+        <p>Виберіть країну</p>
+        <select id = "selector4" onchange = "getSelectorValue2();">
+            <option value="ukraine">Україна</option>
+            <option value="latvia">Латвія</option>
+            <option value="litva">Литва</option>
+        </select>
+        <p id ="res4"></p>
+        <p class="taxes"></p>
+        <p class="profit"></p>
+    </div>
     <script src="./assets/script.js"></script>
 </body>
 </html>

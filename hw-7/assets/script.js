@@ -10,8 +10,23 @@ function getMyTaxes(salary) {
     let newSalary = this.tax * salary;
     return newSalary
 }
+document.forms.form1.onsubmit = function() {
+    const sal = Number(document.getElementById('salary').value);
+    let radioValue = document.querySelector('input[name="form1"]:checked').value; 
+    let callFunc;
+    if (radioValue === 'ukraine'){
+        callFunc = ukraine;
+    }
+    if (radioValue === 'latvia'){
+        callFunc = latvia;
+    }
+    if (radioValue === 'litva'){
+        callFunc = litva;
+    }
+    document.getElementById('res1').innerHTML = `Ви заплатите податків на таку суму: ${getMyTaxes.call(callFunc, sal)}`
+    return false
+}
 
-getMyTaxes.call(latvia, 20000)
 
 // 2. Створіть функцію getMiddleTaxes.call(country) -> number; – 
 // яка рахує скільки у середньому податків платятт IT-спеціалісти у кожній країні. (tax * middleSalary). 
@@ -21,7 +36,21 @@ function getMiddleTaxes() {
     return this.tax * this.middleSalary
 }
 
-getMiddleTaxes.call(latvia)
+function handleClick(){
+    let callFunc;
+    let radioValue = document.querySelector('input[name="form2"]:checked').value; 
+    if (radioValue === 'ukraine'){
+        callFunc = ukraine;
+    }
+     if (radioValue === 'latvia'){
+        callFunc = latvia;
+    }
+    if (radioValue === 'litva'){
+        callFunc = litva;
+    }
+    document.getElementById('res2').innerHTML = `У середньому ІТ-спеціаплісти платять таку суму податків: ${getMiddleTaxes.call(callFunc)}`
+}
+
 
 // 3. Створіть функцію getTotalTaxes.call(country) -> number; – 
 // яка рахує, скільки всього податків платять IT-спеціалісти у кожній країні. (tax * middleSalary * vacancies). 
@@ -31,7 +60,20 @@ function getTotalTaxes() {
     return this.tax * this.middleSalary * this.vacancies
 }
 
-getTotalTaxes.call(litva)
+function getSelectorValue(){
+    let callFunc;
+    let selector = document.getElementById("selector3").value
+    if (selector === 'ukraine'){
+        callFunc = ukraine;
+    }
+     if (selector === 'latvia'){
+        callFunc = latvia;
+    }
+    if (selector === 'litva'){
+        callFunc = litva;
+    }
+    document.getElementById('res3').innerHTML = `${getTotalTaxes.call(callFunc)}`
+}
 
 // 4. Створіть функцію getMySalary(country) – 
 // яка буде писати в консоль об'єкт виду: { salary: number, taxes: number, profit: number } кожні 10 секунд. 
@@ -48,8 +90,23 @@ function getMySalary(country) {
         taxes: taxes,
         profit: profit,
     }
-    console.log(obj)
-    setTimeout(getMySalary, 10000, ukraine)
+    // console.log(obj)
+    document.getElementById('res4').innerHTML = `Якщо зарплата ${obj.salary}, податок ${obj.taxes}, то профіт буде дорівнювати ${obj.profit}`
+    setTimeout(getMySalary, 10000, country)
+}
+function getSelectorValue2(){
+    let callFunc;
+    let selector = document.getElementById("selector4").value
+    if (selector === 'ukraine'){
+        callFunc = ukraine;
+    }
+     if (selector === 'latvia'){
+        callFunc = latvia;
+    }
+    if (selector === 'litva'){
+        callFunc = litva;
+    }
+    getMySalary(callFunc)
 }
 
-getMySalary(ukraine);
+// getMySalary(ukraine);

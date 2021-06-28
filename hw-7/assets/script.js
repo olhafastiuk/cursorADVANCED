@@ -7,23 +7,23 @@ const litva = { tax: 0.15, middleSalary: 1509, vacancies: 1114 };
 // Функція повинна викликатись через call та працювати з даними через this
 
 function getMyTaxes(salary) {
-    let newSalary = this.tax * salary;
-    return newSalary
+    const newSalary = this.tax * salary;
+    return newSalary.toFixed(2)
 }
 document.forms.form1.onsubmit = function() {
-    const sal = Number(document.getElementById('salary').value);
-    let radioValue = document.querySelector('input[name="form1"]:checked').value; 
+    const sal = Number(document.getElementById('salary-input').value);
+    const radioValue = document.querySelector('input[name="form1"]:checked').value; 
     let callFunc;
-    if (radioValue === 'ukraine'){
+    if (radioValue === 'ukraine') {
         callFunc = ukraine;
     }
-    if (radioValue === 'latvia'){
+    if (radioValue === 'latvia') {
         callFunc = latvia;
     }
-    if (radioValue === 'litva'){
+    if (radioValue === 'litva') {
         callFunc = litva;
     }
-    document.getElementById('res1').innerHTML = `Ви заплатите податків на таку суму: ${getMyTaxes.call(callFunc, sal)}`
+    document.getElementById('res1').innerHTML = `Ви заплатите податків на таку суму: <span>${getMyTaxes.call(callFunc, sal)} UAH</span>`
     return false
 }
 
@@ -33,12 +33,13 @@ document.forms.form1.onsubmit = function() {
 // Функція повинна викликатись через call та працювати з даними через this
 
 function getMiddleTaxes() {
-    return this.tax * this.middleSalary
+    const middleTax = this.tax * this.middleSalary;
+    return middleTax.toFixed(2)
 }
 
 function handleClick(){
     let callFunc;
-    let radioValue = document.querySelector('input[name="form2"]:checked').value; 
+    const radioValue = document.querySelector('input[name="form2"]:checked').value; 
     if (radioValue === 'ukraine'){
         callFunc = ukraine;
     }
@@ -48,7 +49,7 @@ function handleClick(){
     if (radioValue === 'litva'){
         callFunc = litva;
     }
-    document.getElementById('res2').innerHTML = `У середньому ІТ-спеціаплісти платять таку суму податків: ${getMiddleTaxes.call(callFunc)}`
+    document.getElementById('res2').innerHTML = `У середньому ІТ-спеціалісти платять таку суму податків:<span> ${getMiddleTaxes.call(callFunc)} UAH</span>`
 }
 
 
@@ -57,12 +58,13 @@ function handleClick(){
 // Функція повинна викликатись через call та працювати з даними через this
 
 function getTotalTaxes() {
-    return this.tax * this.middleSalary * this.vacancies
+    const totalTax = this.tax * this.middleSalary * this.vacancies;
+    return totalTax.toFixed(2)
 }
 
 function getSelectorValue(){
     let callFunc;
-    let selector = document.getElementById("selector3").value
+    const selector = document.getElementById("selector3").value
     if (selector === 'ukraine'){
         callFunc = ukraine;
     }
@@ -72,7 +74,7 @@ function getSelectorValue(){
     if (selector === 'litva'){
         callFunc = litva;
     }
-    document.getElementById('res3').innerHTML = `${getTotalTaxes.call(callFunc)}`
+    document.getElementById('res3').innerHTML = `<span>${getTotalTaxes.call(callFunc)} UAH</span>`
 }
 
 // 4. Створіть функцію getMySalary(country) – 
@@ -82,21 +84,25 @@ function getSelectorValue(){
 // profit = salary - taxes;
 
 function getMySalary(country) {
-    let salary = Math.floor(Math.random() * (2000 - 1500) + 1500);
-    let taxes = salary * country.tax;
-    let profit = salary - taxes;
-    let obj = {
-        salary: salary,
-        taxes: taxes,
-        profit: profit,
+    const salary = Math.floor(Math.random() * (2000 - 1500) + 1500);
+    const taxes = salary * country.tax;
+    const profit = salary - taxes;
+    const obj = {
+        salary: salary.toFixed(2),
+        taxes: taxes.toFixed(2),
+        profit: profit.toFixed(2),
     }
     // console.log(obj)
-    document.getElementById('res4').innerHTML = `Якщо зарплата ${obj.salary}, податок ${obj.taxes}, то профіт буде дорівнювати ${obj.profit}`
+    document.getElementById('salary').innerHTML = `Зарплата: <span>${obj.salary} UAH</span>`;
+    document.getElementById('taxes').innerHTML = `Податок: <span>${obj.taxes} UAH</span>`;
+    document.getElementById('profit').innerHTML = `Профіт: <span>${obj.profit} UAH</span>`;
+
+
     setTimeout(getMySalary, 10000, country)
 }
 function getSelectorValue2(){
     let callFunc;
-    let selector = document.getElementById("selector4").value
+    const selector = document.getElementById("selector4").value
     if (selector === 'ukraine'){
         callFunc = ukraine;
     }

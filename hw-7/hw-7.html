@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>HW #7</title>
 </head>
 <body>
@@ -12,47 +13,61 @@
             Порахуйте, скільки податків ви заплатите як IT-спеціаліст в одній із країн:
         </h2>
        <form name="form1">
-           <p>Введіть зарплату:</p>
-           <input type="number" id="salary">
-           <p>Виберіть країну:</p>
-           <input type="radio" name = 'form1' value="ukraine" > Україна
-           <input type="radio" name = 'form1' value="latvia" > Латвія
-           <input type="radio" name = 'form1' value="litva"> Литва
-           <input type="submit" value="Розрахувати">
-           <p id = "res1"></p>
+           <div class="line">
+            <p>Введіть зарплату:</p>
+            <input type="number" id="salary-input"> UAH
+           </div>
+           <div class="line">
+            <p>Виберіть країну:</p>
+            <input type="radio" name = 'form1' value="ukraine" > Україна
+            <input type="radio" name = 'form1' value="latvia" > Латвія
+            <input type="radio" name = 'form1' value="litva"> Литва
+           </div>
+           <div>
+            <input type="submit" id="btn" value="Розрахувати">
+           </div>
        </form>
+       <p id = "res1"></p>
     </div>
     <div class="block">
         <h2>
             Cередній податок у:
         </h2>
-        <input type="radio" name="form2" value="ukraine" onclick="handleClick();"> Україна
-        <input type="radio" name="form2" value="latvia" onclick="handleClick();"> Латвія
-        <input type="radio" name="form2" value="litva" onclick="handleClick();"> Литва
-        <p id = 'res2'></p>
+        <div>
+            <input type="radio" name="form2" value="ukraine" onclick="handleClick();"> Україна
+            <input type="radio" name="form2" value="latvia" onclick="handleClick();"> Латвія
+            <input type="radio" name="form2" value="litva" onclick="handleClick();"> Литва
+        </div>
+        <p id = 'res2' class="mt"></p>
     </div>
     <div class="block">
         <p>
             Всього у 
             <select id = "selector3" onchange = "getSelectorValue();">
+                <option value=" " selected disabled>Виберіть країну</option>
                 <option value="ukraine">Україна</option>
                 <option value="latvia">Латвія</option>
                 <option value="litva">Литва</option>
             </select> 
             IT-спеціалісти платять податків на суму :
-            <p id = 'res3'></p>
         </p>
+        <p id = 'res3' class="mt"></p>
     </div>
     <div class="block">
-        <p>Виберіть країну</p>
-        <select id = "selector4" onchange = "getSelectorValue2();">
-            <option value="ukraine">Україна</option>
-            <option value="latvia">Латвія</option>
-            <option value="litva">Литва</option>
-        </select>
-        <p id ="res4"></p>
-        <p class="taxes"></p>
-        <p class="profit"></p>
+        <div class="line">
+            <p>Виберіть країну</p>
+            <select id = "selector4" onchange = "getSelectorValue2();">
+                <option value=" " disabled selected>  </option>
+                <option value="ukraine">Україна</option>
+                <option value="latvia">Латвія</option>
+                <option value="litva">Литва</option>
+            </select>
+        </div>
+        <div class="table">
+            <p id = "salary">Зарплата </p>
+            <p id = "taxes">Податки</p>
+            <p id = "profit">Профіт</p>
+        </div>
     </div>
     <script src="./assets/script.js"></script>
 </body>

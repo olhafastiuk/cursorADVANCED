@@ -13,17 +13,17 @@ function getMyTaxes(salary) {
 document.forms.form1.onsubmit = function() {
     const sal = Number(document.getElementById('salary-input').value);
     const radioValue = document.querySelector('input[name="form1"]:checked').value; 
-    let callFunc;
+    let country;
     if (radioValue === 'ukraine') {
-        callFunc = ukraine;
+        country = ukraine;
     }
     if (radioValue === 'latvia') {
-        callFunc = latvia;
+        country = latvia;
     }
     if (radioValue === 'litva') {
-        callFunc = litva;
+        country = litva;
     }
-    document.getElementById('res1').innerHTML = `Ви заплатите податків на таку суму: <span>${getMyTaxes.call(callFunc, sal)} UAH</span>`
+    document.getElementById('res1').innerHTML = `Ви заплатите податків на таку суму: <span>${getMyTaxes.call(country, sal)} UAH</span>`
     return false
 }
 
@@ -38,18 +38,18 @@ function getMiddleTaxes() {
 }
 
 function handleClick(){
-    let callFunc;
+    let country;
     const radioValue = document.querySelector('input[name="form2"]:checked').value; 
     if (radioValue === 'ukraine'){
-        callFunc = ukraine;
+        country = ukraine;
     }
      if (radioValue === 'latvia'){
-        callFunc = latvia;
+        country = latvia;
     }
     if (radioValue === 'litva'){
-        callFunc = litva;
+        country = litva;
     }
-    document.getElementById('res2').innerHTML = `У середньому ІТ-спеціалісти платять таку суму податків:<span> ${getMiddleTaxes.call(callFunc)} UAH</span>`
+    document.getElementById('res2').innerHTML = `У середньому ІТ-спеціалісти платять таку суму податків:<span> ${getMiddleTaxes.call(country)} UAH</span>`
 }
 
 
@@ -63,18 +63,18 @@ function getTotalTaxes() {
 }
 
 function getSelectorValue(){
-    let callFunc;
+    let country;
     const selector = document.getElementById("selector3").value
     if (selector === 'ukraine'){
-        callFunc = ukraine;
+        country = ukraine;
     }
      if (selector === 'latvia'){
-        callFunc = latvia;
+        country = latvia;
     }
     if (selector === 'litva'){
-        callFunc = litva;
+        country = litva;
     }
-    document.getElementById('res3').innerHTML = `<span>${getTotalTaxes.call(callFunc)} UAH</span>`
+    document.getElementById('res3').innerHTML = `<span>${getTotalTaxes.call(country)} UAH</span>`
 }
 
 // 4. Створіть функцію getMySalary(country) – 
@@ -92,7 +92,7 @@ function getMySalary(country) {
         taxes: taxes.toFixed(2),
         profit: profit.toFixed(2),
     }
-    // console.log(obj)
+  
     document.getElementById('salary').innerHTML = `Зарплата: <span>${obj.salary} UAH</span>`;
     document.getElementById('taxes').innerHTML = `Податок: <span>${obj.taxes} UAH</span>`;
     document.getElementById('profit').innerHTML = `Профіт: <span>${obj.profit} UAH</span>`;
@@ -101,18 +101,16 @@ function getMySalary(country) {
     setTimeout(getMySalary, 10000, country)
 }
 function getSelectorValue2(){
-    let callFunc;
+    let country;
     const selector = document.getElementById("selector4").value
     if (selector === 'ukraine'){
-        callFunc = ukraine;
+        country = ukraine;
     }
      if (selector === 'latvia'){
-        callFunc = latvia;
+        country = latvia;
     }
     if (selector === 'litva'){
-        callFunc = litva;
+        country = litva;
     }
-    getMySalary(callFunc)
+    getMySalary(country)
 }
-
-// getMySalary(ukraine);

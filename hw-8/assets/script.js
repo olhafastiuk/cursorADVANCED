@@ -8,7 +8,7 @@ class Student {
         this.averageMark = this.getAverageMark();
     }
     getInfo() {
-        return `Студент ${this.course}-го курсу ${this.university}, ${this.fullName}<br>`
+        return `<b>Студент ${this.course}-го курсу ${this.university}, ${this.fullName}</b><br>`
     }
     
     get getMark() {
@@ -66,7 +66,7 @@ class BudgetStudent extends Student {
     
             setTimeout(function run () {
                 if (variable.scholarship) {
-                document.writeln (`"Ви отримали 1400 грн. стипендії"<br>(для полегшення перевірки домашнього завдання час видачі стипендії пришвидшено у 10раз)<br>`)
+                document.writeln (`<b>"Ви отримали 1400 грн. стипендії"</b><br><i>(для полегшення перевірки домашнього завдання час видачі стипендії пришвидшено у 10раз)</i><br>`)
                 setTimeout(run, 3000)
                 } else clearTimeout(run)
             })
@@ -81,6 +81,7 @@ class BudgetStudent extends Student {
 const firstStudent = new Student ('Вищої Школи Психотерапії м.Одеса', '1', "Остап Бендер")
 
 setTimeout(() => {
+    document.writeln(`  <h2>HW 8. Прототипи. ES6 класи</h2>`)
     document.writeln(`BASIC: Створіть метод, що повертає сукупну інформацію про курс, учбовий заклад та імені студента.<br><br>`)
     document.writeln(firstStudent.getInfo())
     firstStudent.setMark = 5;

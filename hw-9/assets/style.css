@@ -3,9 +3,11 @@
     padding: 0;
     margin: 0;
 }
-#main-block{
+
+#main-block, #main-block2{
     display: flex;
     flex-direction: column;
+    margin: 20px;
 }
 .row {
     display: flex

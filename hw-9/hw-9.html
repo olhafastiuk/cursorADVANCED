@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,28 @@
     <link rel="stylesheet" href="./assets/style.css">
     <title>Document</title>
 </head>
+
 <body>
-    <div id="main-block"></div>
-    <div id="main-block2"></div>
+    <h2>Ведіть значення</h2>
+    <p>Розмір:</p>
+    <input type="number" id="size" oninput="getData()">
+    <p>Кількість елементів:</p>
+    <input type="number" id="amount" oninput="getData()">
+    <p>Кількість стовпців:</p>
+    <input type="number" id="column" oninput="getData()">
+    <div class="btn">
+        <button onclick="generateBlocks()">Генерувати блоки</button>
+        <button onclick="generateBlocksInterval()" id="button">Генерувати блоки з інтервалом</button>
+    </div>
+
+    <div class="hw">
+        <div id="main-block">
+        </div>
+        <div id="main-block2">
+        </div>
+    </div>
 
     <script src="./assets/script.js"></script>
 </body>
+
 </html>

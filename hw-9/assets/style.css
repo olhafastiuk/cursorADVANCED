@@ -4,6 +4,38 @@
     margin: 0;
 }
 
+body {
+    margin: 50px;
+    color: midnightblue;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+p {
+    font-style: italic;
+}
+
+button {
+    padding: 5px 10px;
+    margin-right: 20px;
+    background: transparent;
+    color: midnightblue;
+    border: 1.5px solid midnightblue;
+    border-radius: 6px;
+    cursor: pointer;
+}
+button:hover{
+    color: mintcream;
+    background-color: rgb(80, 80, 170);
+}
+
+input {
+    outline: none;
+    padding: 5px;
+    margin-bottom: 20px;
+}
 #main-block, #main-block2{
     display: flex;
     flex-direction: column;
@@ -11,4 +43,8 @@
 }
 .row {
     display: flex
+}
+
+.hw {
+    display: flex;
 }

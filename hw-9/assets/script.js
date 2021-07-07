@@ -15,6 +15,10 @@ const rowBlock = document.getElementsByClassName("row");
 const blocks = document.getElementsByClassName("block");
 
 function generateBlocks() {
+    if (!size || !amount || !row ) {
+        alert ('Введіть значення')
+        return
+    }
     mainBlock.querySelectorAll(".row").forEach((el) => el.remove());
     mainBlock.querySelectorAll(".title").forEach((el) => el.remove());
     mainBlock.insertAdjacentHTML("beforeend", `<h3 class = "title">BASIC</h3>`);
@@ -31,6 +35,10 @@ function generateBlocks() {
 }
 
 function generateBlocksInterval() {
+    if (!size || !amount || !row ) {
+        alert ('Введіть значення')
+        return
+    }
     clearTimeout(stopInterval);
     mainBlock2.querySelectorAll(".row").forEach((el) => el.remove());
     mainBlock2.querySelectorAll(".title").forEach((el) => el.remove());
@@ -67,3 +75,4 @@ function run(number) {
     generateBlocksStyle(number + x, x);
     stopInterval = setTimeout(run, 1000, number);
 }
+

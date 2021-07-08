@@ -21,9 +21,9 @@ class Student {
 
     set mark(mark) {
         if (this.available) {
-            this.marksArchive = this.marks;
             this.marks.push(mark);
-        } else return null;
+        }
+         else return null;
     }
 
     getAverageMark() {
@@ -39,12 +39,10 @@ class Student {
 
     dismiss() {
         this.available = false;
-        this.marks = null;
     }
 
     returnStudent() {
         this.available = true;
-        this.marks = this.marksArchive;
     }
     
 }
@@ -97,13 +95,13 @@ setTimeout(() => {
     document.writeln(`Додаємо нову оцінку: ${firstStudent.marks} <br>`);
 
     firstStudent.mark = 5;
-    document.writeln(`Додаємо нову оцінку: ${firstStudent.marks}<br> `);
+    document.writeln(`Додаємо нову оцінку: ${firstStudent.mark}<br> `);
 
     document.writeln(`<br>Відрахувати студента <br>`);
     firstStudent.dismiss();
 
     firstStudent.mark = 5;
-    document.writeln(`<br>Додаємо нову оцінку: ${firstStudent.marks} <br> `);
+    document.writeln(`<br>Додаємо нову оцінку: ${firstStudent.mark} <br> `);
 
     document.writeln(`<br>Зарахувати студента знову <br><br>`);
     firstStudent.returnStudent();

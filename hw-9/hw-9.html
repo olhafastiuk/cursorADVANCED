@@ -13,12 +13,12 @@
     <h2>Ведіть значення</h2>
     <p>Розмір:</p>
     <input type="number" min="1" id="size" oninput="getData()">
-    <p>Кількість елементів:</p>
-    <input type="number" min="1" id="amount" oninput="getData()">
+    <p>Кількість рядків:</p>
+    <input type="number" min="1" id="row" oninput="getData()">
     <p>Кількість стовпців:</p>
     <input type="number" min="1" id="column" oninput="getData()">
     <div class="btn">
-        <button onclick="generateBlocks()">Генерувати блоки</button>
+        <button onclick="generateBlocks(mainBlock, basic)">Генерувати блоки</button>
         <button onclick="generateBlocksInterval()" id="button">Генерувати блоки з інтервалом</button>
     </div>
 

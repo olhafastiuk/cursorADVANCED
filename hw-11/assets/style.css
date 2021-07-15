@@ -1,0 +1,14 @@
+body {
+    margin: 50px;
+    color: royalblue;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-style: italic;
+}
+
+#output {
+    color: red;
+    font-style:normal;
+}

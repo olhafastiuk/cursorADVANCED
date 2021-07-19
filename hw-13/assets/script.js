@@ -24,9 +24,9 @@ function getInfo(episode, wookiee) {
                                 .then((data) => {
                                     let gender;
                                     if (data.rrwowhwaworc === "wwwoscraanwo") {
-                                        gender = "w";
+                                        gender = "👧";
                                     } else {
-                                        gender = "m";
+                                        gender = "👦";
                                     }
                                     charactersInfo.insertAdjacentHTML(
                                         "beforeend",
@@ -44,9 +44,9 @@ function getInfo(episode, wookiee) {
                             .then((data) => {
                                 let gender;
                                 if (data.gender === "female") {
-                                    gender = "woman";
+                                    gender = "👩";
                                 } else {
-                                    gender = "man";
+                                    gender = "👨";
                                 }
                                 charactersInfo.insertAdjacentHTML(
                                     "beforeend",
@@ -104,11 +104,13 @@ function getPlanets(page, wookiee) {
     }
 }
 
-document.getElementById("wookiee").addEventListener("change", () => {
-    if (document.getElementById("wookiee").checked) {
+document.querySelector(".wookiee").addEventListener("change", () => {
+    if (document.querySelector(".wookiee").checked) {
         wookiee = true;
+        document.querySelector(".wookiee").classList.add('checked')
     } else {
         wookiee = false;
+        document.querySelector(".wookiee").classList.remove('checked')
     }
 });
 

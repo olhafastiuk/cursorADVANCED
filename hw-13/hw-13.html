@@ -5,20 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="icon" href="./assets/images/favicon.png">
     <title>HW-13</title>
 </head>
 
 <body>
-    <h1>Star Wars</h1>
+    <h1><img src="./assets/images/favicon.png" alt=""></h1>
+    <main>
+        <div class="block">
+            <div class="form">
+                <input type="number" id="episode" max="6" min="1" value="5">
+            <button id="btn" onclick="getInfo(episode)">Get Info</button>
+            </div>
+            <div id='characters_info'></div>
+        </div>
+        <div class="block">
+            <button onclick="getPlanets(page)">Planets</button>
+           <div class="next-prev">
+            <button onclick="getPlanets(obj.previous)">Prev</button>
+            <button onclick="getPlanets(obj.next)"> Next</button>
 
-    <input type="number" id="episode" max="6" min="1" value="5">
-    <button id="btn" onclick="getInfo(episode)">Get Info</button>
+           </div>
+            <div id="planets"></div>
+        </div>
 
-    <div id='characters_info'></div>
-    <button onclick="getPlanets(page)">Planets</button>
-    <button onclick="getPlanets(obj.next)"> Next</button>
-    <button onclick="getPlanets(obj.previous)">Prev</button>
-    <div id="planets"></div>
+    </main>
+
     <script src="./assets/script.js"></script>
 </body>
 

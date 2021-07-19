@@ -1,8 +1,11 @@
 const charactersInfo = document.getElementById("characters_info");
 let episode = 5;
 const planets = document.getElementById("planets");
+let page = "https://swapi.dev/api/planets/?page=1";
+let obj;
+let wookiee = false;
 
-function getInfo(episode) {
+function getInfo(episode, wookiee) {
     fetch("https://swapi.dev/api/films/")
         .then((response) => {
             return response.json();
@@ -15,7 +18,28 @@ function getInfo(episode) {
                         .querySelectorAll(".character")
                         .forEach((el) => el.remove());
                     for (let a = 0; a < films[i].characters.length; a++) {
-                        fetch(films[i].characters[a])
+                        if (wookiee) {
+                            fetch(`${films[i].characters[a]}?format=wookiee`)
+                                .then((response) => response.json())
+                                .then((data) => {
+                                    let gender;
+                                    if (data.rrwowhwaworc === "wwwoscraanwo") {
+                                        gender = "w";
+                                    } else {
+                                        gender = "m";
+                                    }
+                                    charactersInfo.insertAdjacentHTML(
+                                        "beforeend",
+                                        `<div class = "character" >
+                      <p class = 'name'>${data.whrascwo}</p>
+                      <p class = 'birth'>${data.rhahrcaoac_roworarc}</p>
+                      <p class = 'gender'>${gender}</p>
+                      </div>`
+                                    );
+                                });
+                        }
+                        else {
+                            fetch(films[i].characters[a])
                             .then((response) => response.json())
                             .then((data) => {
                                 let gender;
@@ -33,16 +57,14 @@ function getInfo(episode) {
                       </div>`
                                 );
                             });
+                        }
                     }
                 }
             }
         });
 }
 
-let page = "https://swapi.dev/api/planets";
-let obj;
-
-function getPlanets(page) {
+function getPlanets(page, wookiee) {
     if (page !== null) {
         fetch(page)
             .then((response) => response.json())
@@ -52,19 +74,43 @@ function getPlanets(page) {
                 planets
                     .querySelectorAll(".planet")
                     .forEach((el) => el.remove());
-                for (let i = 0; i < data.results.length; i++) {
-                    planets.insertAdjacentHTML(
-                        "beforeend",
-                        `<p class="planet">${data.results[i].name}</p>`
-                    );
+                if (wookiee) {
+                    page = `${page}&format=wookiee`;
+                    fetch(page)
+                        .then((response) => response.json())
+                        .then((data) => {
+                            for (let i = 0; i < data.rcwochuanaoc.length; i++) {
+                                planets.insertAdjacentHTML(
+                                    "beforeend",
+                                    `<p class="planet">${data.rcwochuanaoc[i].whrascwo}</p>`
+                                );
+                            }
+                        });
+                } else {
+                    for (let i = 0; i < data.results.length; i++) {
+                        planets.insertAdjacentHTML(
+                            "beforeend",
+                            `<p class="planet">${data.results[i].name}</p>`
+                        );
+                    }
                 }
             });
-    } else planets.querySelectorAll(".planet").forEach((el) => el.remove());
-    planets.insertAdjacentHTML(
-        "beforeend",
-        `<p class="planet">There isn't page</p>`
-    );
+    } else {
+        planets.querySelectorAll(".planet").forEach((el) => el.remove());
+        planets.insertAdjacentHTML(
+            "beforeend",
+            `<p class="planet">There isn't page</p>`
+        );
+    }
 }
+
+document.getElementById("wookiee").addEventListener("change", () => {
+    if (document.getElementById("wookiee").checked) {
+        wookiee = true;
+    } else {
+        wookiee = false;
+    }
+});
 
 document.getElementById("episode").addEventListener("change", () => {
     episode = +document.querySelector("#episode").value;

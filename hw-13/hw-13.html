@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW-13</title>
+</head>
+
+<body>
+    <h1>Star Wars</h1>
+
+    <input type="number" id="episode" max="6" min="1" value="5">
+    <button id="btn" onclick="getInfo(episode)">Get Info</button>
+
+    <div id='characters_info'></div>
+    <button onclick="getPlanets(page)">Planets</button>
+    <button onclick="getPlanets(obj.next)"> Next</button>
+    <button onclick="getPlanets(obj.previous)">Prev</button>
+    <div id="planets"></div>
+    <script src="./assets/script.js"></script>
+</body>
+
+</html>

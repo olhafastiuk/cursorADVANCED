@@ -37,26 +37,25 @@ function getInfo(episode, wookiee) {
                       </div>`
                                     );
                                 });
-                        }
-                        else {
+                        } else {
                             fetch(films[i].characters[a])
-                            .then((response) => response.json())
-                            .then((data) => {
-                                let gender;
-                                if (data.gender === "female") {
-                                    gender = "👩";
-                                } else {
-                                    gender = "👨";
-                                }
-                                charactersInfo.insertAdjacentHTML(
-                                    "beforeend",
-                                    `<div class = "character" >
+                                .then((response) => response.json())
+                                .then((data) => {
+                                    let gender;
+                                    if (data.gender === "female") {
+                                        gender = "👩";
+                                    } else {
+                                        gender = "👨";
+                                    }
+                                    charactersInfo.insertAdjacentHTML(
+                                        "beforeend",
+                                        `<div class = "character" >
                       <p class = 'name'>${data.name}</p>
                       <p class = 'birth'>${data.birth_year}</p>
                       <p class = 'gender'>${gender}</p>
                       </div>`
-                                );
-                            });
+                                    );
+                                });
                         }
                     }
                 }
@@ -104,13 +103,43 @@ function getPlanets(page, wookiee) {
     }
 }
 
+function getNextPage(obj, wookiee) {
+    let a = document.getElementsByClassName("planet")[0].innerText;
+    if (a === "There isn't page" && obj.previous === null) {
+        fetch(obj.next)
+            .then((response) => response.json())
+            .then((data) => {
+                obj = data;
+                getPlanets(obj.previous, wookiee);
+            });
+    } else getPlanets(obj.next, wookiee);
+}
+
+function getPrevPage(obj, wookiee) {
+    let a = document.getElementsByClassName("planet")[0].innerText;
+    if (a === "There isn't page" && obj.next === null) {
+        fetch(obj.previous)
+            .then((response) => response.json())
+            .then((data) => {
+                obj = data;
+                getPlanets(obj.next, wookiee);
+            });
+    } else getPlanets(obj.previous, wookiee);
+}
+
 document.querySelector(".wookiee").addEventListener("change", () => {
     if (document.querySelector(".wookiee").checked) {
         wookiee = true;
-        document.querySelector(".wookiee").classList.add('checked')
+        document.querySelector(".wookiee").classList.add("checked");
+        if (document.querySelector(".character") !== null) {
+            getInfo(episode, wookiee);
+        }
     } else {
         wookiee = false;
-        document.querySelector(".wookiee").classList.remove('checked')
+        document.querySelector(".wookiee").classList.remove("checked");
+        if (document.querySelector(".character") !== null) {
+            getInfo(episode, wookiee);
+        }
     }
 });
 

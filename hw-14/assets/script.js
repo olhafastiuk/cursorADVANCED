@@ -19,6 +19,9 @@ function* newFontGenerator(size) {
             res = yield size;
         } else if (res === "down") {
             size = size - 2;
+            if (size < 0) {
+                size = 0;
+            }
             res = yield size;
         } else res = yield size;
     }

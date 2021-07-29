@@ -1,9 +1,14 @@
 // homework 9
-// let size;
-// let amount;
-// let column;
-// let row;
+let size = 50;
+let amount = 25;
+let column = 5;
+let row = 5;
 let stopInterval;
+
+const mainBlock = document.getElementById("output-6");
+const mainBlock2 = document.getElementById("output-7");
+const rowBlock = document.getElementsByClassName("row");
+const blocks = document.getElementsByClassName("blocks");
 
 function generateBlocks(mainBlock) {
     if (!size || !amount || !row) {
@@ -19,9 +24,9 @@ function generateBlocks(mainBlock) {
         for (let a = 0; a < row && block < amount; a++) {
             if (mainBlock === mainBlock2) {
                 let index = document.querySelectorAll(".row").length - 1;
-                rowBlock[index].insertAdjacentHTML("beforeend", `<div class = "block" ></div>`);
+                rowBlock[index].insertAdjacentHTML("beforeend", `<div class = "blocks" ></div>`);
             } else {
-                rowBlock[i].insertAdjacentHTML("beforeend", `<div class = "block" ></div>`);
+                rowBlock[i].insertAdjacentHTML("beforeend", `<div class = "blocks" ></div>`);
             }
             block += 1;
         }
@@ -33,8 +38,6 @@ function generateBlocks(mainBlock) {
 }
 
 export function generateBlocksInterval() {
-    const mainBlock2 = document.getElementById("output-7");
-
     clearTimeout(stopInterval);
     let block = generateBlocks(mainBlock2);
     run(block);
@@ -52,7 +55,7 @@ function generateBlocksStyle(i, stop) {
 }
 
 function run(number) {
-    let x = mainBlock.querySelectorAll(".block").length;
+    let x = mainBlock.querySelectorAll(".blocks").length;
     generateBlocksStyle(number + x, x);
     stopInterval = setTimeout(run, 1000, number);
 }

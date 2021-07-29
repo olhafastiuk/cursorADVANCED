@@ -96,18 +96,25 @@ document.getElementById("input-6").addEventListener('click', () =>  {
     document.getElementById("output-6").innerHTML =`${firstStudent.getInfo()}`
 })
 
-// import {generateBlocksInterval} from "./functions/hw9"
-// document.getElementById("input-7").addEventListener('click', () =>  {
-//     const mainBlock = document.getElementById("output-7");
-//     const mainBlock2 = document.getElementById("output-7");
-//     let size = 10;
-//     let column = 5;
-//     let row = 5;
-//     let amount = 25;
-//     generateBlocksInterval()
-   
-// })
-// import css from 'main.css'
+import {generateBlocksInterval} from "./functions/hw9"
+document.getElementById("input-7").addEventListener('click', () =>  {
+    generateBlocksInterval()
+})
+
+import {playNow} from "./functions/hw10"
+import './styles/hw10.css'
+
+import {getRandomChinese} from "./functions/hw11"
+let input = document.getElementById('input-9')
+input.addEventListener('change', function () {
+    let amount = +document.getElementById('input-9').value
+    let promise = getRandomChinese(amount)
+    let output = document.getElementById('output-9');
+    promise.then(
+    (res) => output.innerHTML = res,
+    (err) => output.innerHTML = err);
+})
+
 import "./styles/main.css";
 import background from '../assets/bg.jpg'
 document.body.style.backgroundImage = `url("${background}")`

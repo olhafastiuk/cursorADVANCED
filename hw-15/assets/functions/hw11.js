@@ -20,5 +20,3 @@ export function getRandomChinese(length) {
     });
     return p;
 }
-
-

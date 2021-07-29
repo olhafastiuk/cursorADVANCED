@@ -3,9 +3,10 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    background-size: cover;
 }
 .block {
-    background: rgba(117, 91, 48, 0.178);
+    background: rgba(168, 168, 166, 0.288);
     width: 380px;
     height: 380px;
     display: flex;
@@ -13,6 +14,8 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     border: 2px solid peru;
     border-radius: 6px;
     margin: 10px;
@@ -20,47 +23,52 @@ body {
 }
 
 .btn {
-    margin: 10px ;
+    margin: 10px;
     width: auto;
     outline: none;
-    background: peru;
-    color: rgb(56, 52, 52);
+    background: transparent;
+    color: steelblue;
     padding: 5px 15px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 4px;
-    border: 1px solid peru;
-    font-weight: bold;
+    border: 1px solid steelblue;
     font-style: italic;
     cursor: pointer;
+}
+
+.btn:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    font-weight: bold;
 }
 
 input {
     width: 30%;
     margin: 0 5px;
     outline: none;
-    color: darkred;
-    background: rgba(117, 91, 48, 0.178);
+    background: rgba(90, 64, 89, 0.178);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 4px;
-    border: 1px solid peru;
+    border: none;
     cursor: pointer;
 }
 .radio {
     width: auto;
     margin: 0;
     outline: none;
-    background:none;
+    background: none;
     box-shadow: none;
     border-radius: 0;
-    border: none
+    border: none;
 }
 
 h2 {
-    color: rgb(39, 75, 10);
-    text-shadow:  2px 2px 5px rgba(100, 100, 111, 0.2);;
+    color: rgb(255, 255, 255);
+    text-shadow: rgb(59, 17, 59) 1px 0 15px;
 }
 
-p, span {
+p,
+span {
     color: rgb(44, 46, 43);
     font-style: italic;
     font-weight: bold;
@@ -76,7 +84,7 @@ p, span {
     justify-content: center;
 }
 .row {
-    display: flex
+    display: flex;
 }
 
 .hw {

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/styles.css">
+    <title>HW-15</title>
+</head>
+
+<body>
+    <div class="block">
+        <form name="form_1">
+            <h2>Отримай найбільшу цифру із числа.</h2>
+            <div class="input">
+                <span>Введіть число:</span>
+                <input type="number" min="0" id="input-1">
+            </div>
+            <input class="btn" type="submit" value="Відправити" class="submit">
+            <p id="output-1"></p>
+
+        </form>
+    </div>
+    <div class="block">
+        <h2>Отримати пари студентів:</h2>
+        <p id="output-2"></p>
+        <button class="btn" id="input-2"> Отримати</button>
+    </div>
+    <div class="block">
+        <h2>Масив з випадкових чисел</h2>
+        <div class="line">
+            <p>Від:</p>
+        <input type="number" id="input-3min">
+        </div>
+        <div class="line">
+            <p>До:</p>
+        <input type="number" id="input-3max">
+        </div>
+        <div class="line">
+            <p>Кількість чисел:</p>
+        <input type="number" id="input-3len">
+        </div>
+        <p id="output-3"></p>
+        <button class="btn" id="input-3">Отримати</button>
+    </div>
+    <div class="block">
+        <h2>Отримати середній бал першого студента</h2>
+        <button class="btn" id="input-4">Отримати</button>
+        <p id="output-4"></p>
+    </div>
+    <div class="block">
+        <h2>
+            Порахуйте, скільки податків ви заплатите як IT-спеціаліст в одній із країн:
+        </h2>
+        <form name="form5">
+            <div class="line">
+                <p>Введіть зарплату:</p>
+                <input type="number" min="0" id="input-5"> $
+            </div>
+                <p>Виберіть країну:</p>
+                <input type="radio" name='form5' value="ukraine" class="radio"> Україна
+                <input type="radio" name='form5' value="latvia" class="radio"> Латвія
+                <input type="radio" name='form5' value="litva" class="radio"> Литва
+            <div>
+                <input class="btn" type="submit" id="btn" value="Розрахувати">
+            </div>
+        </form>
+        <p id="output-5"></p>
+    </div>
+    <div class="block">
+        <h2>Отримати інформацію про студента</h2>
+        <button class="btn" id="input-6">Отримати</button>
+        <p id="output-6"></p>
+    </div>
+    <!-- <div class="block">
+        <h2>Згенерувати 25 кольорових блоків</h2>
+        <button id="input-7">Згенерувати</button>
+        <div id="output-7"></div>
+    </div> -->
+
+    <script src="./dist/bundle.js"></script>
+</body>
+
+</html>
